@@ -220,6 +220,16 @@ main {
   letter-spacing: 0.005em;
 }
 
+.doc-body h2 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 200ms ease-out;
+}
+
+.doc-body h2 a:hover {
+  color: var(--accent);
+}
+
 .doc-description {
   font-size: 0.8125rem;
   font-weight: 300;
@@ -236,6 +246,31 @@ main {
   color: var(--text-meta);
   display: flex;
   gap: 16px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* ============================================================
+   RECOMMENDER LINKS
+   ============================================================ */
+
+.rec-links {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 300;
+  color: var(--text-meta);
+}
+
+.rec-links a {
+  color: var(--text-dim);
+  transition: color 200ms ease-out;
+}
+
+.rec-links a:hover {
+  color: var(--accent);
 }
 
 /* ============================================================
