@@ -1,0 +1,264 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:      #0E1116;
+  --surface: #141920;
+  --border:  #1E2530;
+  --accent:  #3E8E7E;
+  --text:    #E6E6E6;
+  --text-dim:#8A8F98;
+  --text-meta:#6B7280;
+
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 200ms ease-out;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+/* ============================================================
+   GRAIN CANVAS
+   ============================================================ */
+
+#grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+
+main {
+  width: 100%;
+  max-width: 640px;
+  padding: 80px 24px;
+}
+
+/* ============================================================
+   IDENTITY / HEADER
+   ============================================================ */
+
+.identity {
+  margin-bottom: 72px;
+}
+
+.identity h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  margin-top: 12px;
+  letter-spacing: 0.04em;
+}
+
+.links {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: var(--text-meta);
+}
+
+.links a {
+  color: var(--text-dim);
+  transition: color 200ms ease-out;
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+.sep {
+  margin: 0 8px;
+  color: var(--border);
+}
+
+/* ============================================================
+   SECTION LABEL
+   ============================================================ */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   DOCUMENT CARDS
+   ============================================================ */
+
+.documents {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doc-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px 28px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    transform 220ms ease-out,
+    box-shadow 220ms ease-out,
+    border-color 220ms ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.doc-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 250ms ease-out;
+}
+
+.doc-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  border-color: #2A3340;
+}
+
+.doc-card:hover::after {
+  width: 100%;
+}
+
+/* PDF icon badge */
+.doc-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 56px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-meta);
+  background: var(--bg);
+  margin-top: 2px;
+}
+
+/* Card text content */
+.doc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.doc-body h2 {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: 0.005em;
+}
+
+.doc-description {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-top: 8px;
+}
+
+.doc-meta {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 300;
+  color: var(--text-meta);
+  display: flex;
+  gap: 16px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  main {
+    padding: 48px 20px;
+  }
+
+  .identity h1 {
+    font-size: 2.25rem;
+  }
+
+  .doc-card {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .doc-icon {
+    width: 36px;
+    height: 46px;
+    font-size: 0.5625rem;
+  }
+}

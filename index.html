@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignacio Balasch Sola</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="grain" aria-hidden="true"></canvas>
+
+  <main>
+    <header class="identity">
+      <h1>Ignacio Balasch Sola</h1>
+      <nav class="links">
+        <a href="mailto:ignacio@balasch.es">ignacio@balasch.es</a>
+        <span class="sep">·</span>
+        <a href="https://linkedin.com/in/ignaciobalaschsola" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/ignaciobalaschsola" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <section class="documents">
+      <a href="docs/cv.pdf" class="doc-card" target="_blank" rel="noopener">
+        <div class="doc-icon">PDF</div>
+        <div class="doc-body">
+          <h2>Curriculum Vitae</h2>
+          <p class="doc-meta">Updated Feb 2026</p>
+        </div>
+      </a>
+    </section>
+
+    <h3 class="section-label">Selected Professional Projects</h3>
+
+    <section class="documents">
+      <a href="docs/amazon.pdf" class="doc-card" target="_blank" rel="noopener">
+        <div class="doc-icon">PDF</div>
+        <div class="doc-body">
+          <h2>Real-Time Buffer Monitoring System</h2>
+          <p class="doc-description">Serverless pipeline monitoring warehouse operations across a European robotized network. Lambda, Step Functions, EventBridge, Redshift. Infrastructure as code.</p>
+          <p class="doc-meta">
+            <span class="doc-company">Amazon</span>
+            <span class="doc-date">Sep 2025 – Feb 2026</span>
+          </p>
+        </div>
+      </a>
+
+      <a href="docs/cigna.pdf" class="doc-card" target="_blank" rel="noopener">
+        <div class="doc-icon">PDF</div>
+        <div class="doc-body">
+          <h2>BI & ML Solutions in Health Insurance</h2>
+          <p class="doc-description">ETL pipelines, Tableau dashboards, customer segmentation (K-Means, OPTICS), and XGBoost cost prediction benchmarked against actuarial pricing.</p>
+          <p class="doc-meta">
+            <span class="doc-company">Cigna Healthcare</span>
+            <span class="doc-date">Sep 2024 – Jul 2025</span>
+          </p>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <script src="grain.js"></script>
+</body>
+</html>
