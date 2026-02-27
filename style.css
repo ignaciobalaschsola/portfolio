@@ -15,11 +15,44 @@
   --accent:  #3E8E7E;
   --text:    #E6E6E6;
   --text-dim:#8A8F98;
-  --text-meta:#6B7280;
+  --text-meta:#8B9098;
 
-  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-heading: 'Roboto', -apple-system, sans-serif;
   --font-sans:  'Inter', -apple-system, sans-serif;
   --font-mono:  'JetBrains Mono', 'Consolas', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #0E1116;
+    --surface:  #141920;
+    --border:   #1E2530;
+    --accent:   #3E8E7E;
+    --text:     #E6E6E6;
+    --text-dim: #8A8F98;
+    --text-meta:#8B9098;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:       #FAFAFA;
+    --surface:  #FFFFFF;
+    --border:   #E2E5E9;
+    --accent:   #2E7D6E;
+    --text:     #1A1A1A;
+    --text-dim: #5A5F68;
+    --text-meta:#6A6F78;
+  }
+
+  .doc-card:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border-color: #CBD0D8;
+  }
+
+  #grain {
+    opacity: 0.02;
+  }
 }
 
 html {
@@ -83,9 +116,9 @@ main {
 }
 
 .identity h1 {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1.15;
   color: var(--text);
