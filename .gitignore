@@ -1,1 +1,5 @@
 node_modules/
+.DS_Store
+# 1200x1800 PNG masters of the five poses (~50 MB); the page uses assets/turn/*.webp
+design/assets/turn-masters/
+design/

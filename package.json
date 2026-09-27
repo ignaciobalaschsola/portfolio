@@ -1,27 +1,16 @@
 {
   "name": "porfoliowebsite",
-  "version": "1.0.0",
-  "description": "Personal portfolio site showcasing selected professional projects, CV, and recommendation letters.",
-  "main": "grain.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "version": "3.0.0",
+  "private": true,
+  "description": "Portfolio of Ignacio Balasch Solá: CV, case studies and recommendation letters.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/site.test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ignaciobalaschsola/portfolio.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/ignaciobalaschsola/portfolio/issues"
-  },
-  "homepage": "https://github.com/ignaciobalaschsola/portfolio#readme",
-  "devDependencies": {
-    "fast-check": "^4.5.3"
-  }
+  "author": "Ignacio Balasch Solá",
+  "license": "UNLICENSED",
+  "homepage": "https://portfolio.ignacio.balasch.es"
 }
