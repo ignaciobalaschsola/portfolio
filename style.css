@@ -43,8 +43,8 @@ button{font:inherit;color:inherit}
 .pin .stage{position:sticky;top:0}
 .pin .run{height:140svh}
 
-/* 86svh, so the next section peeks in under it; capped by width so the poster keeps its proportion */
-.hero{--H:max(560px,min(86svh,64vw));--cx:55vw;position:relative;height:var(--H);overflow:hidden}
+/* the poster is exactly one screen: the name gets the whole viewport (Iggy: more vertical room, a sense of space) */
+.hero{--H:max(600px,100svh);--cx:55vw;position:relative;height:var(--H);overflow:hidden}
 .bar{position:absolute;inset:12px var(--gut) auto;display:flex;justify-content:space-between;align-items:center;z-index:6}
 .bar a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}
 .bar nav{display:flex;gap:22px}
@@ -96,7 +96,7 @@ button{font:inherit;color:inherit}
 .build .c{display:inline-block}
 
 /* ================================================================ 2. about */
-.about{padding:22px var(--gut) clamp(120px,14vw,220px)}
+.about{padding:clamp(96px,11vw,180px) var(--gut) clamp(200px,22vw,360px)}
 .label{margin:0 0 clamp(28px,4vw,56px);font-size:14px;font-weight:500;color:var(--quiet)}
 .about p{margin:0;max-width:19.5em;font-size:clamp(26px,3.3vw,48px);line-height:1.1;letter-spacing:-.025em;text-wrap:pretty}
 
@@ -104,9 +104,6 @@ button{font:inherit;color:inherit}
 .desk{position:relative;color:var(--ink);overflow:hidden;
   font:400 14px/20px Figtree,system-ui,sans-serif;outline:none}
 
-.intro h2{font:400 64px/.95 "Instrument Serif",serif;margin:0 0 14px;letter-spacing:-.5px}
-.intro h2 i{font-style:italic}
-.intro p{margin:0;color:var(--ink2);font-size:15px;line-height:22px}
 .hint{margin:0;color:var(--ink2);font-size:14px;display:none}
 
 /* ---------- objects ---------- */
@@ -176,7 +173,6 @@ button{font:inherit;color:inherit}
 /* ---------- stack (phones, tablets, no JS): the same groups, squared in a column ---------- */
 .board{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:80px;
   padding:0 16px 96px;max-width:760px;margin:0 auto}
-.board .intro{grid-column:1/-1}
 .board{--pw:min(124px,28vw)}
 .board #cv{grid-column:1/-1;justify-self:center;width:min(330px,62vw);margin:24px calc(var(--pw) - 30px) 0 0}
 .board .pola{right:calc(30px - var(--pw));width:var(--pw);padding:7px 7px 26px}
@@ -198,7 +194,6 @@ button{font:inherit;color:inherit}
 .desk.on{height:calc(1280px * var(--s,1))}
 .desk.on .board{position:absolute;left:var(--ox,0);top:0;display:block;width:1440px;height:1280px;max-width:none;margin:0;padding:0;
   transform:scale(var(--s,1));transform-origin:0 0}
-.desk.on .intro{position:absolute;left:113px;top:40px;width:600px}
 .desk.on .hint{display:block;position:absolute;right:113px;top:150px}
 .desk.on .obj{position:absolute;left:0;top:0;margin:0;opacity:0;will-change:transform;
   transform:translate(var(--x),calc(var(--y) + var(--dy,-30px))) rotate(var(--t,0deg));
@@ -216,7 +211,7 @@ button{font:inherit;color:inherit}
 /* ================================================================ 4. the end */
 /* one quiet line after a long pause: his name, then the same three links as the top bar */
 .end{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0 24px;
-  padding:clamp(140px,16vw,260px) var(--gut) 16px;font-size:13px;color:var(--quiet)}
+  padding:clamp(220px,24vw,400px) var(--gut) 20px;font-size:13px;color:var(--quiet)}
 .end small{font-size:inherit}
 .end nav{display:flex;gap:22px}
 .end a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
@@ -228,7 +223,7 @@ button{font:inherit;color:inherit}
   .bar{inset:8px var(--gut) auto}
   .bar .who{display:none}
   .bar nav{gap:0;justify-content:space-between;width:100%}
-  .hero{--H:max(560px,min(86svh,200vw));--cx:58vw}
+  .hero{--H:max(560px,100svh);--cx:58vw}
   .say{top:64px;right:var(--gut);max-width:none;font-size:19px;line-height:1.18}
   .me{--h:min(calc(var(--H) * 1.02),150vw);top:auto;bottom:calc(var(--h) * -.14)}
   .hero .me{--cut:14%}
@@ -259,3 +254,6 @@ button{font:inherit;color:inherit}
 .static .cue i{background-size:1px 100%}
 .static .desk:not(.on) .obj,.static .obj .tag,.static .obj .card,.static .obj .card li,.static .obj .to,.static .obj .ln{opacity:1!important;transform:none}
 .static .desk.on .obj{opacity:1;--dy:0px;transform:translate(var(--x),var(--y))}
+
+/* visually hidden but announced (the desk's heading) */
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
