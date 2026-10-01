@@ -3,7 +3,7 @@
                the turn (the poster pins for 140svh while he flips 1 → 4 → 3 → 5 → 6 → 1, a turntable flipbook),
                the name's letters drifting apart and back, words inking in as they cross the reading zone,
                and the desk heading assembling letter by letter
-   2. desk   — the documents lie knolled on a 1440×1280 artboard; drag one and it springs home
+   2. desk   — the documents lie knolled on a 1440×1900 artboard; drag one and it springs home
    3. cue    — the scroll cue fades once the page has moved
    Test-only URL params: ?static=1 shows every final state, nothing pinned or moving;
    ?progress=0..1 scrolls to that point of the turn and holds the hero there (renders); ?pose=5|6|1|4|3 forces a pose. */
@@ -199,17 +199,18 @@
   })();
 
   /* ------------------------------------------------------------ 2. desk */
-  /* ≥1100px with JS: the objects sit at fixed places on a 1440×1280 artboard scaled to the window (a knolled grid:
-     CV + photo | the two write-ups | three letters). With a mouse, pick one up; on release it springs back to its
-     place, so the desk is always composed. A press that moves under 5px is a click and opens the PDF, which every
-     object is anyway: a real <a> you can tab to and press Enter on (for a letter, the envelope is the <a>
-     and the referee's own links sit under it). Narrower, the same groups stack (CSS only). */
+  /* ≥1100px with JS: the objects sit at fixed places on a 1440×1900 artboard scaled to the window (a knolled grid:
+     CV + photo | the two write-ups | three letters | six work-rights cards). With a mouse, pick one up; on release it
+     springs back to its place, so the desk is always composed. A press that moves under 5px is a click and opens the
+     PDF, which every document is anyway: a real <a> you can tab to and press Enter on (for a letter, the envelope is
+     the <a> and the referee's own links sit under it). The work-rights cards are plain text in a list, not links.
+     Narrower, the same groups stack (CSS only). */
   (function desk() {
     const desk = document.querySelector('.desk');
     const board = document.getElementById('board');
     if (!desk || !board) return;
 
-    const W = 1440, H = 1280, MAX = 1.25;
+    const W = 1440, H = 1900, MAX = 1.25;
     const wide = matchMedia('(min-width:1100px)');
     const fine = matchMedia('(hover:hover) and (pointer:fine)');
     const objs = [...board.querySelectorAll('.obj')];
