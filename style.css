@@ -77,6 +77,12 @@ button{font:inherit;color:inherit}
 .me img.on{opacity:1}
 @keyframes in{to{opacity:1}}
 
+/* tall tablets (portrait): the poster is so tall that he is drawn wider than the window and his face slides over the
+   opening line. Cap his height at 130% of the width and stand him on the same line (his fade still starts exactly at
+   the poster's bottom edge, since 80.5% of his box sits above it), so his head starts below the line. At 768×1024 the
+   line ends at y≈220 and his hair starts at y≈250. */
+@media (min-width:721px) and (max-aspect-ratio:4/5){.me{--h:min(calc(var(--H) * 1.2),130vw);top:calc(var(--H) - var(--h) * .805)}}
+
 /* quiet scroll cue: a hairline that keeps drawing downwards, no arrow */
 .cue{position:absolute;right:var(--gut);top:calc(var(--H) * .15);z-index:5;display:flex;flex-direction:column;align-items:center;gap:10px;
   font-size:12px;letter-spacing:.02em;color:var(--quiet);writing-mode:vertical-rl;transition:opacity .4s}
@@ -162,9 +168,10 @@ button{font:inherit;color:inherit}
 
 /* work rights & ID: six plain cards the size of a bank card, knolled in the letters' three columns. Words only, on
    purpose: no document image and no number ever goes here. Each card: a line icon in his pen (top left), a faint
-   country mark (EU / SE / ES, top right, like the envelopes' postmarks), the fact in serif, the plain-words gloss in mono. */
+   country mark (EU / SE / ES, top right, like the envelopes' postmarks), the fact in serif, the plain-words gloss in mono. The fact starts at the same height on every card (not pushed to
+   the bottom), so the six titles read as two straight lines whether the gloss below is one line or two. */
 .rights ul{margin:0;padding:0;list-style:none}
-.idc{display:flex;flex-direction:column;justify-content:flex-end;width:356px;height:224px;padding:22px 24px;
+.idc{display:flex;flex-direction:column;justify-content:flex-start;width:356px;height:224px;padding:128px 24px 22px;
   background:#fff;border-radius:12px;box-shadow:var(--sh)}
 .drag.idc{box-shadow:var(--lift)}
 .idc .ic{position:absolute;left:22px;top:20px;width:30px;height:30px;fill:none;stroke:var(--klein);stroke-width:1.4;
@@ -196,7 +203,7 @@ button{font:inherit;color:inherit}
 .board .card .h{font-size:20px}
 .board .letter{grid-column:1/-1;justify-self:center;width:min(356px,100%)}
 .board .letter .to b{white-space:normal}
-.board .rights{grid-column:1/-1;margin-top:-8px}
+.board .rights{grid-column:1/-1;margin-top:24px}   /* clear of the last letter's links, which hang 46px below it */
 .board .rights .label{margin:0 0 16px}
 .board .rights ul{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .board .idc{width:auto;height:auto;min-height:168px;padding:64px 16px 16px}
@@ -229,7 +236,7 @@ button{font:inherit;color:inherit}
 .desk.on .letter{width:356px}
 .desk.on .rights,.desk.on .rights ul{display:block;margin:0}
 .desk.on .rights .label{position:absolute;left:113px;top:1300px;margin:0}
-.desk.on .idc{width:356px;height:224px;min-height:0;padding:22px 24px}
+.desk.on .idc{width:356px;height:224px;min-height:0;padding:128px 24px 22px}
 .desk.on .idc .ic{left:22px;top:20px;width:30px;height:30px}
 .desk.on .idc .mk{right:20px;top:18px;width:42px;height:42px;font-size:11px}
 .desk.on .idc b{font-size:26px;margin-bottom:8px}
